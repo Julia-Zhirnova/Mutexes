@@ -9,7 +9,6 @@ DB_PASSWORD = '123'
 DB_HOST = 'localhost'
 OPTS = f'-c search_path=bookings'
 
-
 class Cursor:
     def __init__(self, count):
         self.mutex = threading.Lock() # блокировка, которая на время работы потока с ресурсом закрывает последний от других обращений
@@ -54,7 +53,6 @@ def thread_worker(cursor, thread_id, flush=False):
     file.close()
     ps_cursor.close()
     conn.close()
-
 
 def get_rows_count(conn):
     ps_cursor = conn.cursor()
