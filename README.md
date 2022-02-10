@@ -2,8 +2,8 @@
 ____
 <br/>1. Зашла на виртуалку под админом (логин postgres, пароль qwerty)
 <br/>2. Далее подключилась к базе
-./pg_start
-psql -d demo
+<br/>./pg_start
+<br/>psql -d demo
 <br/>3. Путь к файлу
 ```
 demo=# SHOW hba_file;
