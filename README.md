@@ -1,31 +1,4 @@
 # Mutexes
-____
-<br/>1. Зашла на виртуалку под админом (логин postgres, пароль qwerty)
-<br/>2. Далее подключилась к базе
-<br/>./pg_start
-<br/>psql -d demo
-<br/>3. Путь к файлу
-```
-demo=# SHOW hba_file;
-hba_file
----------------------------------—
-/usr/local/pgsql/data/pg_hba.conf
-(1 строка)
-```
-<br/> 4. host all all 0.0.0.0/0 md5 добавила в конец,
-![image](https://user-images.githubusercontent.com/52165649/153356164-b549d6a7-9c70-4f75-9c54-ac60ae710d5d.png)
-<br/> 5. В postgresql.comf изменила
-<br/> listen_addresses = '0.0.0.0'
-<br/> port = 5432
-<br/> и сохранила файл
-![image](https://user-images.githubusercontent.com/52165649/153356261-92103abe-0ffb-4417-b4ba-8fac0e542685.png)
-<br/> меняем порт
-![image](https://user-images.githubusercontent.com/52165649/153360966-aea0eaee-d839-46d9-9502-61963aa483a3.png)
-![image](https://user-images.githubusercontent.com/52165649/153356368-c481900a-2c81-4298-adcf-fd3910fef81c.png)
-![image](https://user-images.githubusercontent.com/52165649/153356401-bffa12fa-80a7-47f8-862b-5861fe7dd871.png)
-
-<br/> pip3 install psycopg2
-<br/>  pip3 install psycopg2-binary
 - [X] Изучить самостоятельно методы синхронизации потоков(мьютексы, семафоры, критические секции)
 - [X] Сгенерировать таблицу в БД с большим количеством уникальных строк(1 045 726)
 - [X] В одной программе(выбран язык программирования Python) в 10 потоков
@@ -36,6 +9,37 @@ hba_file
 - [X] Записанные данные в файлах не должны пересекаться
 - [X] Повторить п.3, используя синхронную запись в файл (сбрасывать на диск содержимое файла при каждой записи, не полагаться на буфер)
 ____
+____
+<br/>1. Зашла на виртуалку под админом (логин postgres, пароль qwerty)
+<br/>2. Далее подключилась к базе
+<br/>./pg_start
+<br/>psql -d demo
+<br/>3. Проверили путь к файлу (должен совпасть)
+```
+demo=# SHOW hba_file;
+hba_file
+---------------------------------—
+/usr/local/pgsql/data/pg_hba.conf
+(1 строка)
+```
+<br/> 4. Открываем файл командой vi /usr/local/pgsql/data/pg_hba.conf  . Идем в конец файла. Нажимаем i. На новую строчку добавляем:
+<br/> host all all 0.0.0.0/0 md5
+<br/> Потом Esc, :wq
+<br/> Проверяем командой cat /usr/local/pgsql/data/pg_hba.conf что все записалось
+![image](https://user-images.githubusercontent.com/52165649/153356164-b549d6a7-9c70-4f75-9c54-ac60ae710d5d.png)
+<br/> 5. В postgresql.comf изменила командой vi /usr/local/pgsql/data/postgresql.comf  . Идем в конец файла. Нажимаем i. На новую строчку добавляем:
+<br/> listen_addresses = '0.0.0.0'
+<br/> port = 5432
+<br/> Потом Esc, :wq Проверяем командой cat /usr/local/pgsql/data/postgresql.comf что все записалось
+![image](https://user-images.githubusercontent.com/52165649/153356261-92103abe-0ffb-4417-b4ba-8fac0e542685.png)
+<br/> меняем порт в настройках виртульной машины
+![image](https://user-images.githubusercontent.com/52165649/153360966-aea0eaee-d839-46d9-9502-61963aa483a3.png)
+![image](https://user-images.githubusercontent.com/52165649/153356368-c481900a-2c81-4298-adcf-fd3910fef81c.png)
+![image](https://user-images.githubusercontent.com/52165649/153356401-bffa12fa-80a7-47f8-862b-5861fe7dd871.png)
+
+<br/> pip3 install psycopg2
+<br/>  pip3 install psycopg2-binary
+
 <br/> Для выполнения задания мы используем готовую таблицу ticket_flights_tmp, в которой 1 045 726 записей. Для доступа к ней нам нужно зайти через пользователя postgres(DB_USER), пароль 123 (DB_PASSWORD), подключиться к базе данных demo (DB_NAME) и чтобы при обращении к объектам не указывать явно имя схемы bookings.flights, предварительно изменить конфигурационный параметр search_path. (OPTS). Подключаемся локально (DB_HOST = 'localhost') Структура базы данных представлена на скриншоте 1 и пример первых 10 записей на скриншоте 2. Для ее создания использовались следующие команды: </br> 
 ```sql
 su - postgres
