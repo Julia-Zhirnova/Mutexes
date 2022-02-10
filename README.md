@@ -20,7 +20,7 @@ hba_file
 <br/> и сохранила файл
 ![image](https://user-images.githubusercontent.com/52165649/153356261-92103abe-0ffb-4417-b4ba-8fac0e542685.png)
 <br/> меняем порт
-![image](https://user-images.githubusercontent.com/52165649/153356328-bcb41d7a-a769-4867-ae77-910fc73aaf99.png)
+![image](https://user-images.githubusercontent.com/52165649/153360966-aea0eaee-d839-46d9-9502-61963aa483a3.png)
 ![image](https://user-images.githubusercontent.com/52165649/153356368-c481900a-2c81-4298-adcf-fd3910fef81c.png)
 ![image](https://user-images.githubusercontent.com/52165649/153356401-bffa12fa-80a7-47f8-862b-5861fe7dd871.png)
 
