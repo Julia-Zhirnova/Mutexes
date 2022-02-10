@@ -1,6 +1,30 @@
 # Mutexes
 ____
-pip3 install psycopg2
+<br/>1. Зашла на виртуалку под админом (логин postgres, пароль qwerty)
+<br/>2. Далее подключилась к базе
+./pg_start
+psql -d demo
+<br/>3. Путь к файлу
+```
+demo=# SHOW hba_file;
+hba_file
+---------------------------------—
+/usr/local/pgsql/data/pg_hba.conf
+(1 строка)
+```
+<br/> 4. host all all 0.0.0.0/0 md5 добавила в конец,
+![image](https://user-images.githubusercontent.com/52165649/153356164-b549d6a7-9c70-4f75-9c54-ac60ae710d5d.png)
+<br/> 5. В postgresql.comf изменила
+<br/> listen_addresses = '0.0.0.0'
+<br/> port = 5432
+<br/> и сохранила файл
+![image](https://user-images.githubusercontent.com/52165649/153356261-92103abe-0ffb-4417-b4ba-8fac0e542685.png)
+<br/> меняем порт
+![image](https://user-images.githubusercontent.com/52165649/153356328-bcb41d7a-a769-4867-ae77-910fc73aaf99.png)
+![image](https://user-images.githubusercontent.com/52165649/153356368-c481900a-2c81-4298-adcf-fd3910fef81c.png)
+![image](https://user-images.githubusercontent.com/52165649/153356401-bffa12fa-80a7-47f8-862b-5861fe7dd871.png)
+
+<br/> pip3 install psycopg2
 <br/>  pip3 install psycopg2-binary
 - [X] Изучить самостоятельно методы синхронизации потоков(мьютексы, семафоры, критические секции)
 - [X] Сгенерировать таблицу в БД с большим количеством уникальных строк(1 045 726)
