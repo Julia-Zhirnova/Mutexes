@@ -43,11 +43,11 @@ qwerty
 ./pg_start
 psql -d demo
 SET search_path TO bookings;
-CREATE TEMP TABLE ticket_flights_tmp AS SELECT * FROM ticket_flights WITH DATA;
+CREATE TABLE ticket_flights_tmp AS SELECT * FROM ticket_flights WITH DATA;
 ALTER TABLE ticket_flights_tmp ADD COLUMN id SERIAL PRIMARY KEY;
 \d ticket_flights_tmp
 ```
-![image](https://user-images.githubusercontent.com/52165649/139704383-f77b5b5c-dc28-4f5a-b5aa-971fcdf7e116.png)
+![image](https://user-images.githubusercontent.com/52165649/153365693-97bc2ce5-6260-44b1-b7b7-5378011ef351.png)
 <br/> Скриншот 1. Структура БД. </br> 
 ```sql
 SELECT * FROM ticket_flights_tmp limit 10;
