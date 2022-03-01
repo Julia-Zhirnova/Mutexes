@@ -37,6 +37,8 @@ hba_file
 ![image](https://user-images.githubusercontent.com/52165649/153356368-c481900a-2c81-4298-adcf-fd3910fef81c.png)
 ![image](https://user-images.githubusercontent.com/52165649/153356401-bffa12fa-80a7-47f8-862b-5861fe7dd871.png)
 
+<br/> устанавливаем питон
+<br/> apt install python3 python3-pip
 <br/> pip3 install psycopg2
 <br/>  pip3 install psycopg2-binary
 
